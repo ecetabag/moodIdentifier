@@ -5,7 +5,7 @@ import tkinter as tk
 
 master = tk.Tk()
 
-master.geometry("500x300+10+10")
+master.geometry("1000x300+10+10")
 
 tk.Label(master, 
          text="The AP Exam You Took:").grid(column = 0, row=0)
@@ -22,8 +22,8 @@ countPos = 0
 countNeg = 0
 
 
-text_box = tk.Text(master, width = 25, height = 2)
-text_box.grid(row = 8, column = 0, columnspan = 1)
+text_box = tk.Text(master, width = 50, height = 30)
+text_box.grid(row = 14, column = 0, columnspan = 1)
 
 
 text_box.insert("end-1c", "*no entries*")
@@ -31,13 +31,11 @@ text_box.insert("end-1c", "*no entries*")
 def show_entry_fields():
         countPos = 0
         countNeg = 0
-        text_box = tk.Text(master, width = 25, height = 20)
-        text_box.grid(row = 8, column = 0, columnspan = 1)
+        text_box = tk.Text(master, width = 50, height = 30)
+        text_box.grid(row = 14, column = 0, columnspan = 1)
 
 
         #entr = "Entry " + str(entrynum+1)
-        past = "Entry" + ":\nExam: " + e1.get() +  "\nOpinion: " + e2.get() + "\n"
-        text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is positive:)")# adds text to text box
         print("Entry " + ":\nExam: " + e1.get() +  "\nOpinion: " + e2.get() + "\n")
         containsNegative = any(neg in e2.get() for neg in neg)
 
@@ -53,13 +51,14 @@ def show_entry_fields():
         e1.delete(0, 'end')
         e2.delete(0, 'end')
         if (countNeg > countPos):
-                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly negative:( - " + countNeg + "negative words found, " + countPos + "positive words found"  )# adds text to text box
+                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly negative:( - " + str(countNeg) + " unique negative words found, " + str(countPos) + " unique positive words found"  )# adds text to text box
 
-        if(countPos > countNeg):
-                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly positive:)")# adds text to text box
+        elif(countPos > countNeg):
+                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly positive:) - " + str(countNeg + "unique negative words found, " + str(countPos) + " unique positive words found"  )# adds text to text box
 
-        if(countPos == countNeg):
-                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly neutral:/")# adds text to text box
+        elif(countPos == countNeg):
+               
+                text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly neutral:/ - " + str(countNeg + "unique negative words found, " + str(countPos) + " unique positive words found"  )# adds text to text box
 def clearText():
         e1.delete(0, 'end')
         e2.delete(0, 'end')
