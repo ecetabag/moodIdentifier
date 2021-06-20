@@ -42,7 +42,7 @@ The results are shown after a given input value.
 ## Acknowledgements
 
 [List of Positive Words](https://github.com/shekhargulati/sentiment-analysis-python/blob/master/opinion-lexicon-English/positive-words.txt)
--
+
 [List of Negative Words](https://github.com/shekhargulati/sentiment-analysis-python/blob/master/opinion-lexicon-English/negative-words.txt)
 
 
