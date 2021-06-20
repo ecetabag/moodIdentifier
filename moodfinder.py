@@ -1,9 +1,11 @@
-import tkinter as tk #imports every object in Tkinter
+ #imports every object in Tkinter
+import tkinter as tk
 
 master = tk.Tk()
 
-master.geometry("1000x300+10+10") 
+#creating the labels and declaring the screen size
 
+master.geometry("1000x300+10+10") 
 tk.Label(master, 
          text="The AP Exam You Took:").grid(column = 0, row=0) 
 tk.Label(master, 
@@ -38,19 +40,23 @@ def show_entry_fields():
         countNeg = 0
         text_box = tk.Text(master, width = 50, height = 30)
         text_box.grid(row = 14, column = 0, columnspan = 1)
-
-        containsNegative = any(neg in e2.get() for neg in neg) #searches every word in the input string 
-        containsPositive = any(pos in e2.get() for pos in pos) #searches every word in the input string 
-        if (containsPositive): #counts the number of unique positive words
+#searches every word in the input string 
+        containsNegative = any(neg in e2.get() for neg in neg) 
+#searches every word in the input string 
+        containsPositive = any(pos in e2.get() for pos in pos) 
+#counts the number of unique positive words
+        if (containsPositive):
                 countPos = countPos + 1
-        if (containsNegative): #counts the number of unique negative words
+ #counts the number of unique negative words
+        if (containsNegative): 
                 countNeg = countNeg + 1
 
         
         
+#clears the text box
+        e1.delete(0, 'end') 
+        e2.delete(0, 'end')
 
-        e1.delete(0, 'end') #clears the text box
-        e2.delete(0, 'end') #clears the text box
  #determines if the input string is mostly positive or negative. compares the number of unique positive words to negative words, and shows the result accordingly.
         if (countNeg > countPos):
                 text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly negative:( - " + str(countNeg) + " unique negative words found, " + str(countPos) + " unique positive words found"  )# adds text to text box
@@ -61,21 +67,23 @@ def show_entry_fields():
         elif(countPos == countNeg):
                
                 text_box.insert("end-1c", "Your opinion about the " + e1.get() + " exam is mostly neutral:/ - " + str(countNeg) + " unique negative words found, " + str(countPos) + " unique positive words found"  )# adds text to text box
-def clearText(): #function for the clear button
+
+  #function for the clear button     
+def clearText():
         e1.delete(0, 'end')
         e2.delete(0, 'end')
         
             
     
-
-btn=tk.Button(master,text='Clear', fg='red', command=clearText).grid(row=3, column=1, sticky=tk.W, pady=4) #creates the clear button
+ #creates the clear button
+btn=tk.Button(master,text='Clear', fg='red', command=clearText).grid(row=3, column=1, sticky=tk.W, pady=4)
 
         
-
+#creates the enter button
 tk.Button(master, 
           text='Enter', fg='blue' ,command=show_entry_fields).grid(row=3, 
                                                        column=2, 
                                                        sticky=tk.W, 
-                                                 pady=4) #creates the enter button
+                                                 pady=4) 
 
 tk.mainloop()
