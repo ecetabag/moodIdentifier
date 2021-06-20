@@ -34,9 +34,11 @@ neg = ["abnormal","abolish","abominable","abominably","abominate","abomination",
 
 
 ## Screenshots
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+<img width="615" alt="Screen Shot 2021-06-20 at 17 15 52" src="https://user-images.githubusercontent.com/49860124/122677550-75defd80-d1eb-11eb-95fe-a34898494137.png">
+The section that comes up when the program runs.
+<img width="613" alt="Screen Shot 2021-06-20 at 17 17 08" src="https://user-images.githubusercontent.com/49860124/122677561-85f6dd00-d1eb-11eb-8a7d-c18f86b44320.png">
+The results are shown after a given input value.
 
-Please make sure to update tests as appropriate.
+## Acknowledgements
 
-## License
 [MIT](https://choosealicense.com/licenses/mit/)
